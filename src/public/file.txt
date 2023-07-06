@@ -1,0 +1,42 @@
+In PHP, error handling in OOP is typically done using exceptions and the 'Try-catch-finally' blocks. exceptions provide a structured way to handle errors and exceptioanl situatios in code
+
+Examples 
+
+we can define a custome class by extending the built-in 'Exception' class. This allows you to create specific exceptions for different types of error or exceptional situations in your code
+
+class CustomException extends Exception {
+    //custom behavior example
+}
+
+2. Throw an exception
+when an error or exceptional situation occurs, you can throw an exception using the 'throw' keyword. You can throw either a built-in exception or your custome exception
+
+if($someCondtion) {
+    throw new CustomException('Something went wrong')
+}
+
+3. catch and exception:
+
+To catch an exception and handle it gracefully, you use a 'try-catch' block. The code inside the 'try' block is monitored for exceptions, and if an exception is thrown, it can be caught and processed in the corresponding 'catch' block
+
+try {
+    //Code that might throw exception
+} catch (CustomException $e) {
+    //handle custome exception
+    echo "Custom Exception: " . $e->getMessage();
+} catch (Exception $e) {
+    //handle other exceptions
+    echo "Exceptions: " . $e->getMessage();
+}
+
+finally block:
+
+The "finally" block is optiaonl and is used to specify code that will be executed regardless of whether an exception was thrown or not. Its typically used for cleanup operations or releasing resources
+
+try {
+    //code that might throw exception
+} catch (Exception $e){
+    //Handle the Exception
+} finally {
+    //code that will be executed regardless of whether an exception was thrown
+}
